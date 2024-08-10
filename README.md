@@ -4,7 +4,19 @@
 
 O projeto é um modelo de arquitetura de software para projetos .NET Core 6.0 baseado na Arquitetura Hexagonal (Alistair Cockburn).
 
-## Colaborando com o criptomoeda.api
+## Scripts
 
-*Issues* e *Pull Requests* são bem vindos.
+Obter negociacao mais atual de uma cripto:
+var entidade = await _context.NegociacoesDoDia
+    .Where(x => x.Sigla == sigla)
+    .FirstOrDefaultAsync();
 
+Atualizar negoaciacao:
+_context.Entry(negociacoesExistente)
+        .CurrentValues.SetValues(model);
+
+Obter registro de negociacoes de uma cripto:
+var registroNegociacoes = await _context.HistoricoNegociacoes
+                            .Where(x => x.Sigla == sigla)
+                            .OrderByDescending(x => x.DataHora)
+                            .ToListAsync();
