@@ -13,10 +13,6 @@ namespace DbRepositoryAdapter
 
             CreateMap<NegociacoesHistoricoDbModel, NegociacoesDoDia>()
                 .ReverseMap();
-                
-                //.ForMember(dest => dest.Id, opt => opt.Ignore());
-
-            //CreateMap<List<NegociacoesHistoricoDbModel>, List<NegociacoesDoDia>>();
         }
     }
 }
