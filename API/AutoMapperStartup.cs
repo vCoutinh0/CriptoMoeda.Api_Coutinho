@@ -1,7 +1,8 @@
 ﻿using Adapter.MercadoBitcoinAdapter;
 using AutoMapper;
+using criptomoeda.api.Dtos;
+using DbRepositoryAdapter;
 using Domain.Models;
-using Dtos;
 
 namespace baseMap
 {
@@ -15,6 +16,7 @@ namespace baseMap
                 mc.AllowNullCollections = true;
                 mc.AddProfile(new MappingProfile());
                 mc.AddProfile(new MercadoBitcoinMapperProfile());
+                mc.AddProfile(new DbRepositoryMapperProfile());
             });
 
             var mapper = mappingConfig.CreateMapper();
@@ -25,7 +27,8 @@ namespace baseMap
         {
             public MappingProfile()
             {
-                CreateMap<NegociacoesDoDia, NegociacoesDoDiaGetResult>();
+                CreateMap<NegociacoesDoDia, NegociacoesDoDiaGetResult>()
+                    .ReverseMap();
             }
         }
     }

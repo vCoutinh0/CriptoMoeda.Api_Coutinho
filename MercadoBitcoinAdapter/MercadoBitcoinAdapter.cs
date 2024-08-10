@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Adapters;
+using Domain.Exceptions;
 using Domain.Models;
 using MercadoBitcoinAdapter.Clients;
 using Refit;
@@ -32,7 +33,7 @@ namespace Adapter.MercadoBitcoinAdapter
             catch(ApiException apiEx)
             {
                 if (apiEx.ReasonPhrase == "Not Found"){
-                    throw new ($"Sigla da criptomoeda não existe.");
+                    throw new NotFoundException("Sigla da criptomoeda não existe.", apiEx.InnerException);
                 }
 
                 throw new Exception($"{apiEx.InnerException} \n\r {apiEx.Message}");

@@ -1,7 +1,12 @@
-﻿namespace Domain.Models
+﻿namespace DbRepositoryAdapter.Entidades
 {
-    public class NegociacoesDoDia
+    public class NegociacoesHistoricoDbModel
     {
+        /// <summary>
+        /// Id
+        /// </summary>
+        public Guid Id { get; set; } = Guid.NewGuid();
+
         /// <summary>
         /// Sigla da criptomoeda
         /// </summary>

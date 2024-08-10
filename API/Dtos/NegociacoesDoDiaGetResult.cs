@@ -1,4 +1,4 @@
-﻿namespace Dtos
+﻿namespace criptomoeda.api.Dtos
 {
     public class NegociacoesDoDiaGetResult
     {
